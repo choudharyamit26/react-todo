@@ -1,0 +1,316 @@
+/* General Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Card Styling */
+.card {
+  background: linear-gradient(135deg, #34c759, #0a84ff);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.15);
+  width: 80%;
+  max-width: 900px;
+  margin: 2rem auto;
+  color: white;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.card button {
+  background: linear-gradient(135deg, #ff7b30, #ff3b30);
+  color: white;
+  border: none;
+  border-radius: 1.875rem;
+  padding: 0.875rem 1.875rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.card button:hover {
+  background: linear-gradient(135deg, #ff3b30, #c12722);
+  box-shadow: 0 0.5rem 0.9375rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1875rem);
+}
+
+.card button:active {
+  transform: translateY(0.0625rem);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.card-item {
+  background: #ffffff; /* White background for the item */
+  color: #333; /* Dark text color for readability */
+  border-radius: 8px; /* Rounded corners */
+  margin: 10px 0; /* Space between items */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: space-between; /* Aligns content and actions on the same line */
+  align-items: center; /* Vertically centers the items */
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.card-item-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end; /* Aligns the buttons to the right */
+}
+
+.card-item:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.card-item article {
+  font-size: 1.1rem; /* Slightly larger font size */
+  line-height: 1.5;
+  flex: 1; /* This makes sure the article (task content) takes up the remaining space */
+  margin-right: 12px; /* Adds space between content and the buttons */
+}
+/* Dialog Styling */
+dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+dialog[open] {
+  opacity: 1;
+  visibility: visible;
+}
+
+dialog > div {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 75%;
+  box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+dialog h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+dialog button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+dialog button:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.075rem);
+}
+
+dialog button:active {
+  transform: translateY(0.0625rem);
+  background-color: #003366;
+}
+
+/* Dialog Close Button */
+.dialog-close-btn {
+  background: #ff3b30;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dialog-close-btn:hover {
+  background: #c12722;
+}
+
+/* Input field */
+.input-label {
+  font-size: 1rem;
+  color: #555;
+  margin-right: 0.625rem;
+}
+
+.input-field {
+  width: 70%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.3125rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button Styling */
+.btn {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-close {
+  background-color: #f44336;
+  color: white;
+  margin-right: 0.625rem;
+}
+
+.btn-add {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-close:hover {
+  background-color: #d32f2f;
+}
+
+.btn-add:hover {
+  background-color: #0056b3;
+}
+
+.button-group {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.9375rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+
+  .card h2 {
+    font-size: 1.8rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .card button {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  dialog {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  dialog {
+    width: 90%;
+    padding: 0.9375rem;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.25rem;
+  }
+
+  .btn {
+    margin: 0.3125rem 0;
+  }
+}
+
+/* Completed Task */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
